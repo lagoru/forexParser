@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/commodityTextView">
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    tools:text="German Import Price Index (MoM) (Jul)" />
+
+                <TextView
+                    android:id="@+id/actualTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="New Text"
+                    tools:text="0.1%"
+                    android:layout_below="@+id/descriptionTextView"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:id="@+id/predictionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="New Text"
+                    tools:text="-0.1%"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/descriptionTextView" />
+
+                <TextView
+                    android:id="@+id/previousTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="New Text"
+                    tools:text="0.5%"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/descriptionTextView" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/commodityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/clockTextView"
+                tools:text="EUR" />
+
+            <TextView
+                android:id="@+id/clockTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10:55" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

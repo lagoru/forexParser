@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Forex</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="website_informations">Website informations</string>
+    <string name="information_editor">Information editor</string>
+
+    <string name="single_information_page">Information details</string>
+</resources>

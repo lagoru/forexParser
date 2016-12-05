@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="informationSmallImportance">#adad85</color>
+    <color name="informationMediumImportance">#5c5c3d</color>
+    <color name="informationBigImportance">#000000</color>
+
+
+    <color name="informationVeryNegativeImpact">#ff0000</color>
+    <color name="informationNegativeImpact">#ff6666</color>
+    <color name="informationNeutralImpact">#000000</color>
+    <color name="informationPositiveImpact">#5cd65c</color>
+    <color name="informationVeryPositiveImpact">#248f24</color>
+
+    <color name="commonLightGray">#c2c2a3</color>
+
+    <color name="h1_text_color">#46C5F0</color>
+    <color name="black">#000000</color>
+</resources>

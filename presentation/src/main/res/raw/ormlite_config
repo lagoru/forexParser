@@ -1,0 +1,49 @@
+dataClass=com.lagoru.forex.model.Information
+tableName=informations
+# --table-fields-start--
+# --field-start--
+fieldName=informationId
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=webpage
+# --field-end--
+# --field-start--
+fieldName=commodity
+# --field-end--
+# --field-start--
+fieldName=date
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --field-start--
+fieldName=websiteMoreInfo
+# --field-end--
+# --field-start--
+fieldName=predictedValue
+# --field-end--
+# --field-start--
+fieldName=previousValue
+# --field-end--
+# --field-start--
+fieldName=actualValue
+# --field-end--
+# --field-start--
+fieldName=websiteImportance
+# --field-end--
+# --field-start--
+fieldName=userImportance
+# --field-end--
+# --field-start--
+fieldName=predictedWebsiteImpact
+# --field-end--
+# --field-start--
+fieldName=actualWebsiteImpact
+# --field-end--
+# --field-start--
+fieldName=userImpact
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
