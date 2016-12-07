@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fernandocejas.android10.sample.domain.executor;
+package com.lagoru.forex.domain.executor;
 
 import java.util.concurrent.Executor;
 

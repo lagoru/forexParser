@@ -1,5 +1,6 @@
 package com.lagoru.forex.views.activities;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -14,41 +15,41 @@ import android.view.View;
 
 import com.lagoru.forex.R;
 import com.lagoru.forex.views.activities.base.BaseActivity;
-import com.lagoru.forex.views.fragments.WebsiteInfoFragment_;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-@EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @ViewById
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @ViewById(R.id.fab)
+    @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
 
-    @ViewById(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
-    @ViewById
+    @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    @ViewById
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
 
     MainTabsAdapter mainTabsAdapter;
 
-    @AfterViews
-    void init() {
+    @Override
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         mainTabsAdapter = new MainTabsAdapter(this, viewPager, tabLayout);
-        try {
-            mainTabsAdapter.addTab(WebsiteInfoFragment_.class);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         viewPager.setAdapter(mainTabsAdapter);
         setSupportActionBar(toolbar);
 
@@ -72,7 +73,6 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -99,8 +99,6 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_send) {
 
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

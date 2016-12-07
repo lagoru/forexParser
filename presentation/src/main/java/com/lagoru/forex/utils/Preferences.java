@@ -1,20 +1,40 @@
 package com.lagoru.forex.utils;
 
-import org.androidannotations.annotations.sharedpreferences.DefaultBoolean;
-import org.androidannotations.annotations.sharedpreferences.DefaultInt;
-import org.androidannotations.annotations.sharedpreferences.SharedPref;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by lagoru on 25.09.16.
  */
-@SharedPref
-public interface Preferences {
-    @DefaultBoolean(false)
-    boolean allowCyclicInfoCheck();
+@Singleton
+public class Preferences {
 
-    @DefaultInt(5)
-//in minutes
-    int cyclicInfoCheckPeriod();
+    private static final String SHARED_PREF_NAME = "com.lagoru.forex.sharedpref";
+    SharedPreferences sharedPreferences;
 
-    String dataProviderMapString();
+    @Inject
+    public Preferences(Context context) {
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+    }
+
+    public boolean isAllowCyclicInfoCheck() {
+        return sharedPreferences.getBoolean("AllowCyclicInfoCheck", false);
+    }
+
+    public void setAllowCyclicInfoCheck(boolean value) {
+        sharedPreferences.edit().putBoolean("AllowCyclicInfoCheck", value);
+    }
+
+    public int getCyclicInfoCheckPeriod() {
+        return sharedPreferences.getInt("CyclicInfoCheckPeriod", 5);
+    }
+
+    public void setCyclicInfoCheckPeriod(int value) {
+        sharedPreferences.edit().putInt("CyclicInfoCheckPeriod", value);
+    }
 }

@@ -34,9 +34,9 @@ public class MainTabsAdapter extends FragmentStatePagerAdapter {
     }
 
     public void addTab(Class clss) throws Exception {
-        if(clss.isAssignableFrom(BaseFragment.class)) {
+        if (clss.isAssignableFrom(BaseFragment.class)) {
             tabs.add(clss);
-        }else{
+        } else {
             throw new Exception("Bad type of class: should inherit from BaseFragment");
         }
         //tabLayout.addTab(tabLayout.newTab()/*.setIcon(resource)*/.setText(title));

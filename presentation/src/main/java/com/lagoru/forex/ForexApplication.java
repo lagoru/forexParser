@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.lagoru.forex.views.activities.base.BaseActivity;
 import com.lagoru.forex.views.fragments.base.BaseFragment;
+import com.squareup.leakcanary.LeakCanary;
 
 import javax.inject.Singleton;
 
@@ -22,7 +23,7 @@ public class ForexApplication extends Application {
     @Getter
     private static ForexApplication instance;
 
-    public interface ForexBeanComponent{
+    public interface ForexBeanComponent {
 
     }
 
@@ -54,5 +55,12 @@ public class ForexApplication extends Application {
         super.onCreate();
         component = ForexApplicationComponent.Initializer.init(this);
         instance = this;
+        initializeLeakDetection();
+    }
+
+    private void initializeLeakDetection() {
+        if (BuildConfig.DEBUG) {
+            LeakCanary.install(this);
+        }
     }
 }
