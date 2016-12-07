@@ -23,6 +23,7 @@ ext {
     gsonVersion = '2.3'
     okHttpVersion = '3.5.0'
     androidAnnotationsVersion = '24.2.0'
+    jsoupVersion = '1.10.1'
 
     //Testing
     robolectricVersion = '3.0'
@@ -78,7 +79,8 @@ ext {
             rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
             javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject       : "javax.inject:javax.inject:${javaxInjectVersion}",
-            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}"
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            jsoup             : "org.jsoup:jsoup:${jsoupVersion}",
     ]
 
     dataTestDependencies = [

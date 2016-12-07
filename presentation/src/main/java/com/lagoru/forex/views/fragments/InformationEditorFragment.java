@@ -9,8 +9,6 @@ import com.lagoru.forex.R;
 import com.lagoru.forex.presenter.Presenter;
 import com.lagoru.forex.views.fragments.base.BaseFragment;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by lagoru on 01.09.16.
  */
@@ -34,9 +32,9 @@ public class InformationEditorFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.userDetailsPresenter.setView(this);
+        /*this.userDetailsPresenter.setView(this);
         if (savedInstanceState == null) {
             this.loadUserDetails();
-        }
+        }*/
     }
 }

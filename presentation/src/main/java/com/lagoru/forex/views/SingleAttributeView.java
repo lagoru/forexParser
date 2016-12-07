@@ -6,18 +6,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lagoru.forex.R;
+import com.lagoru.forex.data.model.InformationAttribute;
 
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EViewGroup;
-import org.androidannotations.annotations.ViewById;
 
 /**
  * Created by lagoru on 22.09.16.
  */
-@EViewGroup(R.layout.single_attribute_view)
+//@EViewGroup(R.layout.single_attribute_view)
 public class SingleAttributeView extends RelativeLayout {
 
-    @ViewById
+    //@ViewById
     TextView attributeName, attributeValueTextView;
 
     InformationAttribute informationAttribute;
@@ -41,7 +39,7 @@ public class SingleAttributeView extends RelativeLayout {
         attributeValueTextView.setText(informationAttribute.getAttributeValue());
     }
 
-    @Click(R.id.wholeLayout)
+    //@Click(R.id.wholeLayout)
     void click() {
         //TODO
     }

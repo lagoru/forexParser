@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.lagoru.forex.ForexApplication;
+import com.lagoru.forex.di.components.ActivityComponent;
 import com.lagoru.forex.navigator.Navigator;
 
 import javax.inject.Inject;
@@ -19,6 +20,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ForexApplication.getComponent().inject(this);
+        ActivityComponent.Initializer.init(this).inject(this);
+
     }
 }

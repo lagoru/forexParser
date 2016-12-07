@@ -55,7 +55,7 @@ public class InvestingComDataProvider extends DataProviderInterface {
         int importance = element.select("span[class=smallDarkBull]").size(); //od jednego do trzech
         Element pElement = divTimeElement.select("p[title]").first();
         String timeString = pElement.attr("evtstrttime"); //evtstrttime="02:30"
-        information.setWebsiteImportance(Information.Importance.getImpact(importance));
+        information.setWebsiteImportance(importance);
         Date date = information.getDate();
         Calendar calendar = Calendar.getInstance();
         if (date != null) {
@@ -90,15 +90,15 @@ public class InvestingComDataProvider extends DataProviderInterface {
         }
     }
 
-    public Information.Impact getImpactFromString(String string) {
+    public int getImpactFromString(String string) {
         if (string.contains("blackFont")) {
-            return Information.Impact.NEUTRAL;
+            return 1;
         } else if (string.contains("redFont")) {
-            return Information.Impact.NEGATIVE;
+            return 0;
         } else if (string.contains("greenFont")) {
-            return Information.Impact.POSITIVE;
+            return 2;
         }
 
-        return Information.Impact.NEUTRAL;
+        return 1;
     }
 }

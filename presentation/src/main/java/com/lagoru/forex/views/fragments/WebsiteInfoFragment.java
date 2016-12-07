@@ -6,17 +6,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lagoru.forex.R;
-import com.lagoru.forex.data.WebsiteParser;
-import com.lagoru.forex.data.websitedataprovider.InvestingComDataProvider;
+import com.lagoru.forex.data.model.Information;
+import com.lagoru.forex.presenter.Presenter;
 import com.lagoru.forex.views.fragments.base.BaseFragment;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.ViewById;
-
-import java.io.IOException;
 import java.util.List;
 
 import lombok.Data;
@@ -25,16 +18,13 @@ import lombok.Setter;
 /**
  * Created by lagoru on 16.08.16.
  */
-@EFragment(R.layout.fragment_website_info)
+//@EFragment(R.layout.fragment_website_info)
 public class WebsiteInfoFragment extends BaseFragment {
 
-    @Bean
-    WebsiteParser websiteParser;
-
-    @ViewById
+    //@ViewById
     RecyclerView recyclerView;
 
-    @ViewById
+    //@ViewById
     TextView webpageName;
 
     WebsiteInfosAdapter websiteInfosAdapter;
@@ -45,17 +35,20 @@ public class WebsiteInfoFragment extends BaseFragment {
         return getString(R.string.website_informations);
     }
 
-    @AfterViews
+    @Override
+    protected Presenter getPresenter() {
+        return null;
+    }
+
     void init() {
         linearLayoutManager = new LinearLayoutManager(getContext());
         websiteInfosAdapter = new WebsiteInfosAdapter();
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(websiteInfosAdapter);
-        downloadData();
+        //downloadData();
     }
 
-    @Background
-    void downloadData() {
+   /* void downloadData() {
         try {
             InvestingComDataProvider investingComDataProvider = new InvestingComDataProvider();
             List<Information> informationList = investingComDataProvider.parseWebsite();
@@ -69,7 +62,7 @@ public class WebsiteInfoFragment extends BaseFragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Data
     class SingleInformationViewHolder extends RecyclerView.ViewHolder {
@@ -87,7 +80,7 @@ public class WebsiteInfoFragment extends BaseFragment {
 
         @Override
         public SingleInformationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new SingleInformationViewHolder(SingleWebsiteInfoView_.build(parent.getContext()));
+            return null;//new SingleInformationViewHolder(SingleWebsiteInfoView_.build(parent.getContext()));
         }
 
         @Override

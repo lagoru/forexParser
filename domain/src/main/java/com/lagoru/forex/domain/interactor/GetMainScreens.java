@@ -1,5 +1,8 @@
 package com.lagoru.forex.domain.interactor;
 
+import com.lagoru.forex.data.executor.PostExecutionThread;
+import com.lagoru.forex.data.executor.ThreadExecutor;
+
 import rx.Observable;
 
 /**

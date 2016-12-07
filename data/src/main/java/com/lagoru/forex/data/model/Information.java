@@ -48,15 +48,15 @@ public class Information extends RealmObject {
 
     String actualValue;
 
-    Importance websiteImportance; //impakt jaki uwaza strona
+    int websiteImportance; //impakt jaki uwaza strona
 
-    Importance userImportance;// impakt jaki uważa uzytkownik
+    int userImportance;// impakt jaki uważa uzytkownik
 
-    Impact predictedWebsiteImpact;
+    int predictedWebsiteImpact;
 
-    Impact actualWebsiteImpact;
+    int actualWebsiteImpact;
 
-    Impact userImpact;
+    int userImpact;
 
     public enum Importance {
         BIG,
