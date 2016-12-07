@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lagoru.forex.domain.executor;
+package com.lagoru.forex.data.executor;
 
-import java.util.concurrent.Executor;
+import rx.Scheduler;
 
 /**
- * Executor implementation can be based on different frameworks or techniques of asynchronous
- * execution, but every implementation will execute the
- * {@link com.fernandocejas.android10.sample.domain.interactor.UseCase} out of the UI thread.
+ * Thread abstraction created to change the execution context from any thread to any other thread.
+ * Useful to encapsulate a UI Thread for example, since some job will be done in background, an
+ * implementation of this interface will change context and update the UI.
  */
-public interface ThreadExecutor extends Executor {}
+public interface PostExecutionThread {
+  Scheduler getScheduler();
+}

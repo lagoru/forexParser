@@ -14,7 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.lagoru.forex.R;
+import com.lagoru.forex.domain.interactor.GetMainScreens;
 import com.lagoru.forex.views.activities.base.BaseActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +42,9 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
+
+    @Inject
+    GetMainScreens getMainScreens;
 
     MainTabsAdapter mainTabsAdapter;
 
