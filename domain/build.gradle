@@ -1,8 +1,5 @@
 apply plugin: 'com.android.library'
 
-configurations {
-  provided
-}
 
 android {
     defaultPublishConfig "debug"
@@ -38,11 +35,6 @@ android {
         disable 'InvalidPackage'  // Some libraries have issues with this
         disable 'OldTargetApi'    // Due to Robolectric that modifies the manifest when running tests
     }
-}
-sourceSets {
-  main {
-    compileClasspath += configurations.provided
-  }
 }
 
 dependencies {

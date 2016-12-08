@@ -13,5 +13,5 @@ gradle/
 .gradle
 /*/local.properties
 /*/out
-/*/*/build
+
 
