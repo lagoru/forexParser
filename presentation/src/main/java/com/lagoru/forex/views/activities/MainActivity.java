@@ -15,12 +15,15 @@ import android.view.View;
 
 import com.lagoru.forex.R;
 import com.lagoru.forex.domain.interactor.GetMainScreens;
+import com.lagoru.forex.views.FragmentMapper;
 import com.lagoru.forex.views.activities.base.BaseActivity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Subscriber;
+import rx.Subscription;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +48,9 @@ public class MainActivity extends BaseActivity
 
     @Inject
     GetMainScreens getMainScreens;
+
+    @Inject
+    FragmentMapper fragmentMapper;
 
     MainTabsAdapter mainTabsAdapter;
 
@@ -74,6 +80,8 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getMainScreens.execute();
         mainTabsAdapter.notifyDataSetChanged();
     }
 
