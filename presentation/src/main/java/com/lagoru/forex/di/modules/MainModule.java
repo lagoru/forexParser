@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.Reusable;
 
 /**
  * Created by lagoru on 05.12.16.
@@ -24,7 +25,7 @@ public class MainModule {
     }
 
     @Provides
-    @Singleton
+    @Reusable
     public static SharedPreferenceManager getSharedPreferencesManager(Context context) {
         return new SharedPreferenceManager(context, "com.lagoru.forex");
     }

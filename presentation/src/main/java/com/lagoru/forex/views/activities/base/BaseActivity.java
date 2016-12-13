@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.lagoru.forex.ForexApplication;
 import com.lagoru.forex.di.components.ActivityComponent;
+import com.lagoru.forex.domain.exception.DefaultErrorBundle;
 import com.lagoru.forex.navigator.Navigator;
 
 import javax.inject.Inject;
@@ -21,6 +22,9 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityComponent.Initializer.init(this).inject(this);
+    }
 
+    protected void showErrorMessage(DefaultErrorBundle defaultErrorBundle) {
+        //TODO
     }
 }

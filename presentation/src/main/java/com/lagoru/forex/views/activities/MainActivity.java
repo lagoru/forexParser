@@ -13,17 +13,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.fernandocejas.frodo.annotation.RxLogSubscriber;
 import com.lagoru.forex.R;
+import com.lagoru.forex.domain.exception.DefaultErrorBundle;
+import com.lagoru.forex.domain.interactor.DefaultSubscriber;
 import com.lagoru.forex.domain.interactor.GetMainScreens;
 import com.lagoru.forex.views.FragmentMapper;
 import com.lagoru.forex.views.activities.base.BaseActivity;
+
+import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Subscriber;
-import rx.Subscription;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,8 +85,7 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getMainScreens.execute();
-        mainTabsAdapter.notifyDataSetChanged();
+        getMainScreens.execute(new GetMainScreensSubscriber());
     }
 
     @Override
@@ -115,5 +118,32 @@ public class MainActivity extends BaseActivity
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @RxLogSubscriber
+    private final class GetMainScreensSubscriber extends DefaultSubscriber<Set<String>> {
+
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            showErrorMessage(new DefaultErrorBundle((Exception) e));
+        }
+
+        @Override
+        public void onNext(Set<String> classesNames) {
+            List<Class> fragmentList = fragmentMapper.transform(classesNames);
+            try {
+                for (Class clazz : fragmentList) {
+                    mainTabsAdapter.addTab(clazz);
+                }
+            } catch (Exception e) {
+                showErrorMessage(new DefaultErrorBundle(e));
+            }
+            mainTabsAdapter.notifyDataSetChanged();
+        }
     }
 }
