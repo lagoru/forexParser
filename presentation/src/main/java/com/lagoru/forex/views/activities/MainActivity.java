@@ -124,11 +124,6 @@ public class MainActivity extends BaseActivity
     private final class GetMainScreensSubscriber extends DefaultSubscriber<Set<String>> {
 
         @Override
-        public void onCompleted() {
-
-        }
-
-        @Override
         public void onError(Throwable e) {
             showErrorMessage(new DefaultErrorBundle((Exception) e));
         }

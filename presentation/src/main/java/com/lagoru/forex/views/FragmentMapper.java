@@ -1,5 +1,6 @@
 package com.lagoru.forex.views;
 
+import com.lagoru.forex.data.utils.ListUtils;
 import com.lagoru.forex.views.fragments.SingleWebsiteInfoView;
 
 import java.util.ArrayList;
@@ -9,12 +10,15 @@ import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import lombok.Getter;
+
 /**
  * Created by lagoru on 13.12.16.
  */
 @Singleton
 public class FragmentMapper {
 
+    @Getter
     List<Class> allBaseFragmentsForMainScreen = new ArrayList<>();
 
     @Inject
@@ -32,5 +36,9 @@ public class FragmentMapper {
             }
         }
         return baseFragmentClassSet;
+    }
+
+    public Set<String> getDefaultScreenNames() {
+        return ListUtils.linkedHashSetFrom(SingleWebsiteInfoView.class.getCanonicalName());
     }
 }
