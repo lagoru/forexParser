@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lagoru.forex.R;
-import com.lagoru.forex.presenter.Presenter;
+import com.lagoru.forex.presenter.base.Presenter;
 import com.lagoru.forex.views.fragments.base.BaseFragment;
 
 /**

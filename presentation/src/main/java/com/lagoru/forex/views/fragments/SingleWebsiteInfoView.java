@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,30 +13,47 @@ import com.lagoru.forex.R;
 import com.lagoru.forex.data.model.Information;
 import com.lagoru.forex.utils.DateUtils;
 
+import butterknife.BindView;
+
 /**
  * Created by lagoru on 30.08.16.
  */
-//@EViewGroup(R.layout.single_website_info_view_layout)
 public class SingleWebsiteInfoView extends RelativeLayout {
 
-    //@ViewById
-    TextView clockTextView, commodityTextView, descriptionTextView, actualTextView, predictionTextView, previousTextView;
+    @BindView(R.id.clockTextView)
+    TextView clockTextView;
+    @BindView(R.id.commodityTextView)
+    TextView commodityTextView;
+    @BindView(R.id.descriptionTextView)
+    TextView descriptionTextView;
+    @BindView(R.id.actualTextView)
+    TextView actualTextView;
+    @BindView(R.id.predictionTextView)
+    TextView predictionTextView;
+    @BindView(R.id.previousTextView)
+    TextView previousTextView;
 
     public SingleWebsiteInfoView(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public SingleWebsiteInfoView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public SingleWebsiteInfoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SingleWebsiteInfoView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(context);
+    }
+
+    void init(Context context) {
+        View.inflate(context, R.layout.single_website_info_view_layout, this);
     }
 
     public void setupView(Information information) {

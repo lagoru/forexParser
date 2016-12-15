@@ -1,4 +1,4 @@
-package com.lagoru.forex.presenter;
+package com.lagoru.forex.presenter.base;
 
 /**
  * Created by lagoru on 06.12.16.

@@ -1,10 +1,17 @@
-package com.lagoru.forex.presenter;
+package com.lagoru.forex.presenter.base;
+
+import android.view.ViewGroup;
 
 /**
- * Created by lagoru on 07.12.16.
+ * Created by lagoru on 15.12.16.
  */
 
-public class PresenterAdapter implements Presenter {
+public class ViewPresenterAdapter implements ViewPresenter {
+    @Override
+    public void setupView(ViewGroup viewGroup) {
+
+    }
+
     @Override
     public void start() {
 

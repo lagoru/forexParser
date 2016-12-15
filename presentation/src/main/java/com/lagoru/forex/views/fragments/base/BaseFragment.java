@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
-import com.lagoru.forex.presenter.Presenter;
+import com.lagoru.forex.presenter.base.Presenter;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
