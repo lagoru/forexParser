@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
+import com.lagoru.forex.di.components.FragmentComponent;
 import com.lagoru.forex.presenter.base.Presenter;
 
 import butterknife.ButterKnife;
@@ -27,7 +28,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        //ForexApplication.getComponent().inject(this);
+        FragmentComponent.Initializer.init(this);
     }
 
     @Override
@@ -44,14 +45,14 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onPause() {
-        super.onPause();
         getPresenter().pause();
+        super.onPause();
     }
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         unbinder.unbind();
+        super.onDestroyView();
     }
 
     @Override

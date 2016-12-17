@@ -1,31 +1,41 @@
 package com.lagoru.forex.views.fragments;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lagoru.forex.R;
 import com.lagoru.forex.data.model.Information;
+import com.lagoru.forex.presenter.WebsiteInfoPresenter;
 import com.lagoru.forex.presenter.base.Presenter;
+import com.lagoru.forex.views.components.SingleWebsiteInfoView;
 import com.lagoru.forex.views.fragments.base.BaseFragment;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import butterknife.BindView;
 import lombok.Data;
 import lombok.Setter;
 
 /**
  * Created by lagoru on 16.08.16.
  */
-//@EFragment(R.layout.fragment_website_info)
 public class WebsiteInfoFragment extends BaseFragment {
 
-    //@ViewById
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    //@ViewById
+    @BindView(R.id.webpageName)
     TextView webpageName;
+
+    @Inject
+    WebsiteInfoPresenter websiteInfoPresenter;
 
     WebsiteInfosAdapter websiteInfosAdapter;
     LinearLayoutManager linearLayoutManager;
@@ -37,32 +47,23 @@ public class WebsiteInfoFragment extends BaseFragment {
 
     @Override
     protected Presenter getPresenter() {
-        return null;
+        return websiteInfoPresenter;
     }
 
-    void init() {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_website_info, container);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle bundle) {
+        super.onViewCreated(view, bundle);
         linearLayoutManager = new LinearLayoutManager(getContext());
         websiteInfosAdapter = new WebsiteInfosAdapter();
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(websiteInfosAdapter);
-        //downloadData();
     }
-
-   /* void downloadData() {
-        try {
-            InvestingComDataProvider investingComDataProvider = new InvestingComDataProvider();
-            List<Information> informationList = investingComDataProvider.parseWebsite();
-            websiteInfosAdapter.setInformationList(informationList);
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    recyclerView.getAdapter().notifyDataSetChanged();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     @Data
     class SingleInformationViewHolder extends RecyclerView.ViewHolder {
@@ -80,7 +81,7 @@ public class WebsiteInfoFragment extends BaseFragment {
 
         @Override
         public SingleInformationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;//new SingleInformationViewHolder(SingleWebsiteInfoView_.build(parent.getContext()));
+            return new SingleInformationViewHolder(new SingleWebsiteInfoView(parent.getContext()));
         }
 
         @Override

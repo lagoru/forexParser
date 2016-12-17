@@ -1,7 +1,7 @@
 package com.lagoru.forex.views;
 
 import com.lagoru.forex.data.utils.ListUtils;
-import com.lagoru.forex.views.fragments.SingleWebsiteInfoView;
+import com.lagoru.forex.views.components.SingleWebsiteInfoView;
 
 import java.util.ArrayList;
 import java.util.List;

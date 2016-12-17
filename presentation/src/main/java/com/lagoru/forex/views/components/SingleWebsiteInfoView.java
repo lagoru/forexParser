@@ -1,4 +1,4 @@
-package com.lagoru.forex.views.fragments;
+package com.lagoru.forex.views.components;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,6 +14,7 @@ import com.lagoru.forex.data.model.Information;
 import com.lagoru.forex.utils.DateUtils;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by lagoru on 30.08.16.
@@ -54,6 +55,7 @@ public class SingleWebsiteInfoView extends RelativeLayout {
 
     void init(Context context) {
         View.inflate(context, R.layout.single_website_info_view_layout, this);
+        ButterKnife.bind(this);
     }
 
     public void setupView(Information information) {
